@@ -9,18 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".VictoriaActivity">
-
-        </activity>
-        <activity android:name=".CajaShakiraActivity"></activity>
-        <activity android:name=".CajaActivity">
+        <activity android:name=".WhatsUpActivity"></activity>
+        <activity android:name=".MenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
+        <activity android:name=".VictoriaActivity" />
+        <activity android:name=".CajaShakiraActivity" />
+        <activity android:name=".CajaActivity"></activity>
         <activity android:name=".ImagenActivity" />
         <activity android:name=".IMCActivity" />
         <activity android:name=".DaLaVueltaActivity">

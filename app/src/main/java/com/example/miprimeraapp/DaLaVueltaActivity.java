@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -17,6 +18,9 @@ public class DaLaVueltaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+        dibujarFlechaAtras();
+
         if (savedInstanceState==null)
         {
             Log.d("MIAPP", "No hay nada guardado, entró por 1ª vez");
@@ -92,5 +96,19 @@ public class DaLaVueltaActivity extends AppCompatActivity {
         caja_salida.setText(cadena_volteada);
     }
 
+    private void dibujarFlechaAtras() {
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        Log.d("MIAPP", "Se ha tocado un elemento de la barra/menú");
+
+        if (android.R.id.home ==  item.getItemId()){
+            Log.d("MIAPP", "Ha tocado la flecha para atrás");
+            this.finish();
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 }

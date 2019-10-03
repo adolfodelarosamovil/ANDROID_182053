@@ -1,10 +1,12 @@
 package com.example.miprimeraapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -22,6 +24,8 @@ public class VersionActivity extends AppCompatActivity {
         Log.d("etiqueta", "APP iniciada");//nivel DEBUG que no es muy importante
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        dibujarFlechaAtras();
 
         Log.d("etiqueta", "pantalla cargada");
         this.caja_version = this.findViewById(R.id.caja_version);
@@ -70,5 +74,20 @@ public class VersionActivity extends AppCompatActivity {
 
         escribirVersion();
         Log.d("etiqueta", "Han tocado el botón");
+    }
+
+    private void dibujarFlechaAtras() {
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        Log.d("MIAPP", "Se ha tocado un elemento de la barra/menú");
+
+        if (android.R.id.home ==  item.getItemId()){
+            Log.d("MIAPP", "Ha tocado la flecha para atrás");
+            this.finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
